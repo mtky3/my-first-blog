@@ -16,7 +16,21 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 
+from django.contrib.auth import views
+
 urlpatterns = [
+    # path('', include('blog.urls')),  # http://127.0.0.1:8000/はどうするのか
+    path('post/', include('blog.urls')),
+    # https://docs.djangoproject.com/ja/2.2/intro/tutorial01/
+    path('polls/', include('polls.urls')),
+    # https://qiita.com/kaki_k/items/6e17597804437ef170ae
+    path('cms/', include('cms.urls')),
+    path('api/', include('api.urls')),
     path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
+    # https://it-engineer-lab.com/archives/544
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
 ]
+
