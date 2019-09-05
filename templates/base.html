@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <header>
-        <p class="site-name"><a href="{% url 'blogs:index' %}">Blog App</a></p>
+        <p class="site-name"><a href="(% url 'blogs:index' %)">NSApps</a></p>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -20,7 +20,7 @@
                 <li><a href="{% url 'accounts:signup' %}" class="signup">Sign up</a></li>
                 <li><a href="{% url 'login' %}" class="login">Login</a></li>
                 {% endif %}
-                <li><a href="{% url 'blogs:create' %}" class="act">Add Post</a></li>
+                <li><a href="(% url 'blogs:create' %)" class="act">Add Post</a></li>
             </ul>
         </nav>
     </header>

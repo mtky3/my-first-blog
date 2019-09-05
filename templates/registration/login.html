@@ -3,7 +3,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h1>Login</h1>
+<h2>Login</h2>
 <section class="common-form">
     {% if form.errors %}
     <p class="error-msg">Your username and password didn't match. Please try again.</p>
@@ -24,5 +24,8 @@
         <button type="submit" class="submit">Login</button>
         <input type="hidden" name="next" value="{{ next }}"/>
     </form>
+    <br>
+   <p><strong>-- OR --</strong></p>
+   <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
 </section>
 {% endblock %}
