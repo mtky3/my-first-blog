@@ -10,8 +10,9 @@
 </head>
 <body>
 <div class="container">
+    {% block content %}
     <header>
-        <p class="site-name"><a href="(% url 'blogs:index' %)">NSApps</a></p>
+        <p class="site-name"><a href="{% url 'home' %}">NSApps</a></p>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -25,7 +26,7 @@
         </nav>
     </header>
     <div class="content">
-        {% block content %}{% endblock %}
+    {% endblock %}
     </div>
 </div>
 </body>
