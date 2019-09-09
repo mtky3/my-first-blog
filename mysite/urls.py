@@ -21,7 +21,7 @@ from .views import home
 
 urlpatterns = [
     # path('', include('blog.urls')),  # http://127.0.0.1:8000/はどうするのか
-    path('post/', include('blog.urls')),
+    path('blog/', include('blog.urls')),
     # https://docs.djangoproject.com/ja/2.2/intro/tutorial01/
     path('polls/', include('polls.urls')),
     # https://qiita.com/kaki_k/items/6e17597804437ef170ae
