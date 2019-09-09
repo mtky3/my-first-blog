@@ -60,16 +60,18 @@
     <p class="error-msg">Please login to see this page.</p>
     {% endif %}
     {% endif %}
-
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="submit">Login</button>
-        <input type="hidden" name="next" value="{{ next }}"/>
-    </form>
-    <br>
-   <p><strong>-- OR --</strong></p>
-   <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+    <div style="margin: 0 auto;">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{% url 'accounts:signup' %}">新規登録はこちら</a><br>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </form>
+        <br>
+        <p><strong>-- OR --</strong></p>
+        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+    </div>
 </section>
 </div>
 </div>
