@@ -4,7 +4,7 @@
 {% block title %}感想の編集{% endblock title %}
 
 {% block content %}
-    <h4 class="mt-4 mb-5 border-bottom">感想の編集</h4>
+    <h4 class="mt-4 mb-5 border-bottom">履歴の編集</h4>
     {% if impression_id %}
     <form action="{% url 'cms:impression_mod' book_id=book_id impression_id=impression_id %}" method="post">
     {% else %}
