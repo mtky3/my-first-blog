@@ -1,10 +1,10 @@
 {% extends "cms/base.html" %}
 {% load bootstrap4 %}
 
-{% block title %}書籍の編集{% endblock title %}
+{% block title %}ターゲットの編集{% endblock title %}
 
 {% block content %}
-    <h4 class="mt-4 mb-5 border-bottom">書籍の編集</h4>
+    <h4 class="mt-4 mb-5 border-bottom">ターゲットの編集</h4>
     {% if book_id %}
     <form action="{% url 'cms:book_mod' book_id=book_id %}" method="post">
     {% else %}
