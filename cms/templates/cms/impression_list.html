@@ -1,8 +1,47 @@
-{% extends "cms/base.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>NSApps</title>
+        <!-- BootstrapのCSS読み込み -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="stylesheet.css">     -->
+        <!-- jQuery読み込み -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- BootstrapのJS読み込み -->
+        <script src="js/bootstrap.min.js"></script>
+    </head>
 
-{% block title %}感想の一覧{% endblock title %}
+    <body>
+        {% extends 'base.html' %}
+            
+            {% block content %}
+            <div style="width: 200px; height: 50px; margin: 0 0 0 auto;">
+                    {% if user.is_authenticated %}
+                        <p class="display-4" style="font-size: 20px; margin: 0;">Hello, {{ user.username }}</p>
+                        <a class="lead" href="{% url 'logout' %}">Log out</a>
+                    {% else %}
+                        <a class="lead" style="float: right;" href="{% url 'login' %}">Log in</a>
+                    {% endif %}
+            </div>
+        <div class="header" style="color: white; background-color: #404040;">
+            <div class="row">
+                <div class="header-logo col-lg-2 col-md-2 col-sm-2">NSApps</div>
+                <div class="header-logo col-lg-4 col-md-2 col-sm-0"></div>
+                <div class="header-list col-lg-6 col-md-8 col-sm-10">
+                    <ul class="row" style="list-style: none">
+                        <li class="col-lg-3 col-md-3 col-sm-3"><a href="{% url 'blog:post_list' %}">blog</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3"><a href="{% url 'cms:book_list' %}">ターゲット</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3"><a href="{% url 'polls:index' %}">アンケート</a></li>
+                        <li class="col-lg-3 col-md-3 col-sm-3">LINEworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-{% block content %}
     <h4 class="mt-4 border-bottom">対応履歴 <small class="text-muted ml-3">{{ book.name }}</small></h4>
     <a href="{% url 'cms:impression_add' book_id=book.id %}" class="btn btn-primary btn-sm my-3">追加</a>
     <table class="table table-striped table-bordered">
@@ -82,4 +121,11 @@ $(function() {
   });
 });
 </script>
-{% endblock %}
+        {% endblock %}
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+    </body>
+</html>
